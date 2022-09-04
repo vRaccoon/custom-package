@@ -1,0 +1,11 @@
+apivserion: data.packaging.carvel.dev/v1alpha1
+kind: PackageMetadata
+metadata:
+  # Name of the pkg
+  name: vraccoon-nginx.vraccoon.lab
+spec:
+  displayName: "vRaccoon nginx"
+  longDescription: "Long descripton of the nginx"
+  shortDescription: "short descripton of the nginx"
+  maintainers:
+  - name: "vRaccoon"

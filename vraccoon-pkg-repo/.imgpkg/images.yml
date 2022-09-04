@@ -2,10 +2,10 @@
 apiVersion: imgpkg.carvel.dev/v1alpha1
 images:
 - annotations:
-    kbld.carvel.dev/id: harbor.app.vraccoon.lab/packages/vraccoon-cert-manager:1.0.0
+    kbld.carvel.dev/id: harbor.app.vraccoon.lab/packages/vraccoon-nginx:1.0.0
     kbld.carvel.dev/origins: |
       - resolved:
           tag: 1.0.0
-          url: harbor.app.vraccoon.lab/packages/vraccoon-cert-manager:1.0.0
-  image: harbor.app.vraccoon.lab/packages/vraccoon-cert-manager@sha256:10b5a041887ac5beb259acd1043fa08d821eef54f6903a9c209be61ba9070494
+          url: harbor.app.vraccoon.lab/packages/vraccoon-nginx:1.0.0
+  image: harbor.app.vraccoon.lab/packages/vraccoon-nginx@sha256:10b5a041887ac5beb259acd1043fa08d821eef54f6903a9c209be61ba9070494
 kind: ImagesLock

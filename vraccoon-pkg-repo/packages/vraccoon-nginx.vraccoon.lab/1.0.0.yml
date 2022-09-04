@@ -1,15 +1,15 @@
 apiVersion: data.packaging.carvel.dev/v1alpha1
 kind: Package
 metadata:
-  name: vraccoon-cert-manager.vraccoon.lab.1.0.0
+  name: vraccoon-nginx.vraccoon.lab.1.0.0
 spec:
-  refName: vraccoon-cert-manager.vraccoon.lab
+  refName: vraccoon-nginx.vraccoon.lab
   version: 1.0.0
   releaseNotes: |
-    First Release of vRaccoon Cert-Manager
+    First Release of vRaccoon nginx
   valuesSchema:
     openAPIv3:
-      title: vraccoon-cert-manager.vraccoon.lab Values Schema
+      title: vraccoon-nginx.vraccoon.lab Values Schema
       examples:
         - namespace: test
           fe_port: 80
@@ -37,7 +37,7 @@ spec:
     spec:
       fetch:
         - imgpkgBundle:
-            image: harbor.app.vraccoon.lab/packages/vraccoon-cert-manager:1.0.0
+            image: harbor.app.vraccoon.lab/packages/vraccoon-nginx:1.0.0
       template:
         - ytt:
             paths:
