@@ -1,0 +1,46 @@
+#@ load("@ytt:data", "data")
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: #@ data.values.namespace
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx
+  name: nginx
+  namespace: #@ data.values.namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: nginx:stable-alpine
+        name: nginx
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-nginx
+  namespace: #@ data.values.namespace
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: #@ data.values.fe_port
+      targetPort: #@ data.values.be_port
+  type: LoadBalancer

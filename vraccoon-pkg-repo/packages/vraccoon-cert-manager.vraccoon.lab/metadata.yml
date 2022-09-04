@@ -1,0 +1,11 @@
+apivserion: data.packaging.carvel.dev/v1alpha1
+kind: PackageMetadata
+metadata:
+  # Name of the pkg
+  name: vraccoon-cert-manager.vraccoon.lab
+spec:
+  displayName: "vRaccoon Cert-Manager"
+  longDescription: "Long descripton of the cert-manager"
+  shortDescription: "short descripton of the cert-manager"
+  maintainers:
+  - name: "vRaccoon"

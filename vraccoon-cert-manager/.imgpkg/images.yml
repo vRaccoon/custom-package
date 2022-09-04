@@ -1,0 +1,11 @@
+---
+apiVersion: imgpkg.carvel.dev/v1alpha1
+images:
+- annotations:
+    kbld.carvel.dev/id: nginx:stable-alpine
+    kbld.carvel.dev/origins: |
+      - resolved:
+          tag: stable-alpine
+          url: nginx:stable-alpine
+  image: index.docker.io/library/nginx@sha256:98a1e37840fdf90f57df595dae8e27a198278170323744e13464b7f3a927562e
+kind: ImagesLock

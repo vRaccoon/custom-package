@@ -1,0 +1,52 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  name: vraccoon-cert-manager.vraccoon.lab.1.0.0
+spec:
+  refName: vraccoon-cert-manager.vraccoon.lab
+  version: 1.0.0
+  releaseNotes: |
+    First Release of vRaccoon Cert-Manager
+  valuesSchema:
+    openAPIv3:
+      title: vraccoon-cert-manager.vraccoon.lab Values Schema
+      examples:
+        - namespace: test
+          fe_port: 80
+          be_port: 80
+      properties:
+        namespace:
+          type: string
+          descripton: Namespace to deploy the app
+          default: test
+          examples:
+            - test
+        fe_port:
+          type: integer
+          descripton: LB Port for the Service
+          default: 80
+          examples:
+            - 80
+        be_port:
+          type: integer
+          descripton: Backend Port for the service, where Pod is listening
+          default: 80
+          examples:
+            - 80
+  template:
+    spec:
+      fetch:
+        - imgpkgBundle:
+            image: harbor.app.vraccoon.lab/packages/vraccoon-cert-manager:1.0.0
+      template:
+        - ytt:
+            paths:
+              - "config/"
+        - kbld:
+           paths:
+             - "-"
+             - ".imgpkg/images.yml"
+      deploy:
+        - kapp: {}
+          
+   

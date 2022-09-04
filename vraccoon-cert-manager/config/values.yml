@@ -1,0 +1,5 @@
+#@data/values
+---
+namespace: test
+fe_port: 80
+be_port: 80
